@@ -1,2 +1,3 @@
 #studentu saraksts
-##liga viksna
+##viksna liga
+###kurss stars
