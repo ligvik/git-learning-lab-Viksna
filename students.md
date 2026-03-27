@@ -1,3 +1,4 @@
-#students
-##liga viksna
-###kurss pasvaditas macibas Devop
+#studentu saraaksts
+
+## Līga vīksna
+
