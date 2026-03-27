@@ -2,3 +2,16 @@
 
 ## Līga vīksna
 
+Izveido failu index.html ar šādu saturu:
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Docker uzdevums</title>
+</head>
+<body>
+  <h1>Mans pirmais Docker uzdevums</h1>
+  <p>Šī lapa darbojas konteinerā.</p>
+  <p>Students: Līga Vīksna.</p>
+</body>
+</html>
