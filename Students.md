@@ -1,4 +1,5 @@
 
-# Students
-Vārds: Līga Vīksna
+# Studentu saraksts
+
+## Līga V.
 
