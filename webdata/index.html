@@ -1,0 +1,14 @@
+notepad docker-compose.yml
+
+services:
+  web:
+    build: .
+    ports:
+      - "8082:80"
+
+  web-volume:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./webdata:/usr/share/nginx/html
