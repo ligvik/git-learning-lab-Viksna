@@ -1,25 +1,24 @@
-name: Students file CI/CD
+name: Build Test Push
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: [ "main" ]
+
 jobs:
-  check-students-file:
+  build-test-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Lejupieladet repozitorija kodu
+      - name: Checkout project
         uses: actions/checkout@v4
-      - name: Parbaudit, vai eksiste Students.md
-        run: |
-          if [ ! -f Students.md ]; then
-            echo "Kļūda: fails Students.md nav atrasts!"
-            exit 1
-          fi
-      - name: Paradit Students.md saturu
-        run: cat Students.md
-      - name: Testa solis
-        run: echo "Parbaude veiksmigi izpildita"
-      - name: Deploy (demo solis)
-        if: success()
-        run: echo "Deploy veiksmīgs"
+
+      - name: Run test
+        run: bash test.sh
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/gala_projekts .
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Push to Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/gala_projekts
+        
